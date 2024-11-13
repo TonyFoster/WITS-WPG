@@ -37,8 +37,8 @@ public class AttendanceController {
     public void dbTest(@NotNull Context context) {
         AttendanceRecordRepository repository = new AttendanceRecordRepository();
         try {
-            repository.saveAttendanceRecord(new AttendanceRecord(new AttendanceRequest("Tony", AttendanceType.CHECK_IN)));
-            boolean b = repository.isUserCheckIn("Tony", Calendar.getInstance());
+            repository.saveAttendanceRecord(new AttendanceRecord(new AttendanceRequest("劉仁傑", AttendanceType.CHECK_IN)));
+            boolean b = repository.isUserCheckIn("劉仁傑", Calendar.getInstance());
             System.out.println(b);
             context.json(Map.of("success", "DB test completed"));
         } catch (Exception e) {

@@ -26,12 +26,12 @@ public class AttendanceController {
         if (name == null || name.isBlank()) {
             throw new AppException("Name is required");
         }
-//        boolean isCheckedIn = attendanceService.hasUserCheckedIn(name, Calendar.getInstance());
-        boolean isCheckedIn = false;
-        AttendanceRequest request = new AttendanceRequest(name, isCheckedIn ? AttendanceType.CHECK_OUT : AttendanceType.CHECK_IN);
+        Calendar calendar = Calendar.getInstance();
+        boolean isCheckedIn = attendanceService.hasUserCheckedIn(name, calendar);
+        boolean isBefore1030 = calendar.get(Calendar.HOUR_OF_DAY) < 10 || (calendar.get(Calendar.HOUR_OF_DAY) == 10 && calendar.get(Calendar.MINUTE) < 30);
+        AttendanceRequest request = new AttendanceRequest(name, isCheckedIn || isBefore1030 ? AttendanceType.CHECK_IN : AttendanceType.CHECK_OUT);
         attendanceService.check(request);
         context.json(Map.of("success", "Request completed"));
-
     }
 
     public void dbTest(@NotNull Context context) {

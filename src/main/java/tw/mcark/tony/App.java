@@ -22,6 +22,6 @@ public class App {
             context.json(Map.of("error", exception.getMessage()));
         });
 
-        app.post("/check", attendanceController::check);
+        app.post("/wits/check", attendanceController::check);
     }
 }

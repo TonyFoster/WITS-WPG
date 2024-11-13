@@ -21,15 +21,15 @@ public class AttendanceController {
     }
 
     public void check(Context context) {
-        String name = context.formParam("name");
+        AttendanceRequest request = context.bodyAsClass(AttendanceRequest.class);
 
-        if (name == null || name.isBlank()) {
+        if (request.getName() == null || request.getName().isBlank()) {
             throw new AppException("Name is required");
         }
         Calendar calendar = Calendar.getInstance();
-        boolean isCheckedIn = attendanceService.hasUserCheckedIn(name, calendar);
+        boolean isCheckedIn = attendanceService.hasUserCheckedIn(request.getName(), calendar);
         boolean isBefore1030 = calendar.get(Calendar.HOUR_OF_DAY) < 10 || (calendar.get(Calendar.HOUR_OF_DAY) == 10 && calendar.get(Calendar.MINUTE) < 30);
-        AttendanceRequest request = new AttendanceRequest(name, isCheckedIn || isBefore1030 ? AttendanceType.CHECK_IN : AttendanceType.CHECK_OUT);
+        request.setType(isCheckedIn || isBefore1030 ? AttendanceType.CHECK_IN : AttendanceType.CHECK_OUT);
         attendanceService.check(request);
         context.json(Map.of("success", "Request completed"));
     }

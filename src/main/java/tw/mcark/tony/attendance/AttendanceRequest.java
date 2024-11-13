@@ -48,4 +48,8 @@ public class AttendanceRequest {
     public AttendanceType getType() {
         return type;
     }
+
+    public void setType(AttendanceType type) {
+        this.type = type;
+    }
 }

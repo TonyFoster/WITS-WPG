@@ -23,5 +23,6 @@ public class App {
         });
 
         app.post("/wits/check", attendanceController::check);
+        app.get("/wits/db-test", attendanceController::dbTest);
     }
 }

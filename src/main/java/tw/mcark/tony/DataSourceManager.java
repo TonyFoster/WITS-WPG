@@ -13,8 +13,8 @@ public class DataSourceManager {
 
     private DataSourceManager() {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/wits");
-        config.setUsername(System.getenv("DB_WITS_USERNAME")); // Use environment variables
+        config.setJdbcUrl(System.getenv("DB_WITS_JDBC_URL"));
+        config.setUsername(System.getenv("DB_WITS_USERNAME"));
         config.setPassword(System.getenv("DB_WITS_PASSWORD"));
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
 

@@ -1,9 +1,11 @@
 package tw.mcark.tony.attendance;
 
 import io.javalin.http.Context;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tw.mcark.tony.AppException;
+import tw.mcark.tony.DataSourceManager;
 
 import java.util.Calendar;
 import java.util.Map;
@@ -30,5 +32,16 @@ public class AttendanceController {
         attendanceService.check(request);
         context.json(Map.of("success", "Request completed"));
 
+    }
+
+    public void dbTest(@NotNull Context context) {
+        DataSourceManager dataSourceManager = DataSourceManager.getInstance();
+        try {
+            dataSourceManager.getConnection().close();
+            context.json(Map.of("success", "DB connection is OK"));
+        } catch (Exception e) {
+            logger.error("DB connection failed", e);
+            throw new AppException("DB connection failed");
+        }
     }
 }

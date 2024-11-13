@@ -1,2 +1,2 @@
-rootProject.name = "Hub"
+rootProject.name = "WITS-WPG"
 

@@ -26,7 +26,7 @@ tasks.test {
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = "tw.mcark.tony.App" // Replace with the fully qualified main class name
+        attributes["Main-Class"] = "tw.mcark.tony.App"
     }
 
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE

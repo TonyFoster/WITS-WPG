@@ -30,7 +30,9 @@ target/
 .gradle/
 build/
 gradle-app.setting
-gradle-wrapper.properties
+!gradle/
+!gradle/wrapper/
+!gradle/wrapper/**
 
 # Eclipse
 .classpath

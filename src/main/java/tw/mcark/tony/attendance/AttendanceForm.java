@@ -72,7 +72,6 @@ public class AttendanceForm {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'Your response was submitted.')]")));
 
-        System.out.println("Submission confirmation message displayed!");
         close();
         return true;
     }

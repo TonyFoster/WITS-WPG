@@ -18,8 +18,6 @@ public class DataSourceManager {
         config.setPassword(System.getenv("DB_WITS_PASSWORD"));
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
-        System.out.println(System.getenv("DB_WITS_JDBC_URL"));
-
         config.setMaximumPoolSize(10);
         config.setMinimumIdle(2);
         config.setIdleTimeout(30 * 1000);

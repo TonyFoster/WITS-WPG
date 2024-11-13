@@ -35,13 +35,15 @@ public class AttendanceController {
     }
 
     public void dbTest(@NotNull Context context) {
-        DataSourceManager dataSourceManager = DataSourceManager.getInstance();
+        AttendanceRecordRepository repository = new AttendanceRecordRepository();
         try {
-            dataSourceManager.getConnection().close();
-            context.json(Map.of("success", "DB connection is OK"));
+            repository.saveAttendanceRecord(new AttendanceRecord(new AttendanceRequest("Tony", AttendanceType.CHECK_IN)));
+            boolean b = repository.isUserCheckIn("Tony", Calendar.getInstance());
+            System.out.println(b);
+            context.json(Map.of("success", "DB test completed"));
         } catch (Exception e) {
-            logger.error("DB connection failed", e);
-            throw new AppException("DB connection failed");
+            logger.error("DB test failed", e);
+            throw new AppException("DB test failed");
         }
     }
 }

@@ -18,6 +18,7 @@ dependencies {
     implementation("org.seleniumhq.selenium:selenium-java:4.26.0")
     implementation("org.slf4j:slf4j-simple:2.0.16")
     implementation("com.zaxxer:HikariCP:6.1.0")
+    implementation("mysql:mysql-connector-java:8.0.33")
 }
 
 tasks.test {

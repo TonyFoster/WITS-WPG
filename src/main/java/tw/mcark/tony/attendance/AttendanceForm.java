@@ -14,10 +14,10 @@ import java.util.List;
 
 public class AttendanceForm {
 
+    ChromeOptions options = new ChromeOptions();
     WebDriver driver;
 
     public AttendanceForm() {
-        ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
@@ -26,10 +26,13 @@ public class AttendanceForm {
         options.addArguments("--disable-software-rasterizer");
         options.addArguments("--remote-allow-origins=*");
         options.setBinary("/usr/bin/google-chrome");
-        driver = new ChromeDriver(options);
     }
 
     public boolean check(AttendanceRequest request) {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//        driver = new ChromeDriver(options);
         driver.get("https://forms.office.com/pages/responsepage.aspx?id=eXwE3tnU80qR3rxEsFgUkLLKmSniPx1EiibSk0QcVUpUOU9TN0FGV1BZWEczSE5XU0dFV1lXNElCTyQlQCN0PWcu");  // Open the target URL
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.of(10, ChronoUnit.SECONDS));
@@ -72,7 +75,7 @@ public class AttendanceForm {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'Your response was submitted.')]")));
 
-        close();
+//        close();
         return true;
     }
 

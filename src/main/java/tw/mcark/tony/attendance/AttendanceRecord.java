@@ -12,6 +12,16 @@ public class AttendanceRecord {
     private Calendar leaveEnd;
     private String leaveReason;
 
+    public AttendanceRecord(String name, String office, AttendanceType type, Instant createdAt, Calendar leaveStart, Calendar leaveEnd, String leaveReason) {
+        this.name = name;
+        this.office = office;
+        this.type = type;
+        this.createdAt = createdAt;
+        this.leaveStart = leaveStart;
+        this.leaveEnd = leaveEnd;
+        this.leaveReason = leaveReason;
+    }
+
     public AttendanceRecord(AttendanceRequest request) {
         this.name = request.getName();
         this.office = request.getOffice();

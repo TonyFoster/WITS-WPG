@@ -17,7 +17,7 @@ public class AttendanceRequest {
         OFFICES.put("盧宥銨", "LaaS");
         OFFICES.put("鐘學明", "應用");
         OFFICES.put("林昶翰", "ERP-B");
-        OFFICES.put("沈", "ERP-B");
+        OFFICES.put("沈羽碒", "ERP-B");
     }
 
     private String name;

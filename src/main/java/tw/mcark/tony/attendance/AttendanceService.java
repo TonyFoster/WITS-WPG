@@ -23,6 +23,7 @@ public class AttendanceService {
         try {
             form.check(request);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new AppException("Failed to check attendance");
         }
 

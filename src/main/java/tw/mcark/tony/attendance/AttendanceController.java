@@ -31,7 +31,7 @@ public class AttendanceController {
         Calendar calendar = Calendar.getInstance();
         boolean isCheckedIn = attendanceService.hasUserCheckedIn(request.getName(), calendar);
         boolean isBefore1030 = calendar.get(Calendar.HOUR_OF_DAY) < 10 || (calendar.get(Calendar.HOUR_OF_DAY) == 10 && calendar.get(Calendar.MINUTE) < 30);
-        request.setType(isCheckedIn || isBefore1030 ? AttendanceType.CHECK_IN : AttendanceType.CHECK_OUT);
+        request.setType(!isCheckedIn || isBefore1030 ? AttendanceType.CHECK_IN : AttendanceType.CHECK_OUT);
         attendanceService.check(request);
         context.json(Map.of("success", "Request completed"));
     }

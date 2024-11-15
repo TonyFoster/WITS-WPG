@@ -20,15 +20,11 @@ public class AttendanceService {
     }
 
     public void check(AttendanceRequest request) {
-        try {
-            form.check(request);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (form.check(request)) {
+            saveAttendanceRecord(new AttendanceRecord(request));
+        } else {
             throw new AppException("Failed to check attendance");
         }
-
-        AttendanceRecord record = new AttendanceRecord(request);
-        saveAttendanceRecord(record);
     }
 
     public void saveAttendanceRecord(AttendanceRecord record) {

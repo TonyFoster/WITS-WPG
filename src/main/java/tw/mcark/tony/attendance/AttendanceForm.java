@@ -81,7 +81,7 @@ public class AttendanceForm {
         }
 
         textarea.sendKeys(request.getName());
-//        submitButton.click();
+        submitButton.click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'Your response was submitted.')]")));
         driver.quit();

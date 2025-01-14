@@ -1,5 +1,8 @@
 package tw.mcark.tony.attendance;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingException;
+import com.google.firebase.messaging.Message;
 import tw.mcark.tony.AppException;
 
 import java.sql.SQLException;
@@ -35,6 +38,28 @@ public class AttendanceService {
             throw new AppException("Failed to save attendance record");
         }
     }
+
+//    public static void sendPushNotification(String token, String title, String body) {
+//        String registrationToken = "YOUR_REGISTRATION_TOKEN";
+//
+//// See documentation on defining a message payload.
+//        Message message = Message.builder().putData("score", "850").putData("time", "2:45").setToken(registrationToken).build();
+//
+//// Send a message to the device corresponding to the provided
+//// registration token.
+//        String response = null;
+//        try {
+//            response = FirebaseMessaging.getInstance().send(message);
+//        } catch (FirebaseMessagingException e) {
+//            throw new RuntimeException(e);
+//        }
+//// Response is a message ID string.
+//        System.out.println("Successfully sent message: " + response);
+//    }
+//
+//    public static void main(String[] args) {
+//        sendPushNotification("token", "title", "body");
+//    }
 
 }
 

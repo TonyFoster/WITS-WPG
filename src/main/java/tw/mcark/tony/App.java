@@ -3,6 +3,7 @@ package tw.mcark.tony;
 import io.javalin.Javalin;
 import tw.mcark.tony.attendance.AttendanceController;
 import tw.mcark.tony.attendance.AttendanceService;
+import tw.mcark.tony.chatbot.ChatBotController;
 
 import java.util.Map;
 
@@ -10,6 +11,7 @@ public class App {
     public static void main(String[] args) {
         AttendanceService attendanceService = new AttendanceService();
         AttendanceController attendanceController = new AttendanceController(attendanceService);
+        ChatBotController chatBotController = new ChatBotController();
 
         Javalin app = Javalin.create(config -> {
             config.bundledPlugins.enableCors(corsPluginConfig -> {
@@ -26,5 +28,6 @@ public class App {
         app.get("/wits/records", attendanceController::records);
         app.get("/wits/lastCheckTime", attendanceController::lastCheckTime);
         app.get("/wits/db-test", attendanceController::dbTest);
+        app.post("/wits/ask", chatBotController::ask);
     }
 }

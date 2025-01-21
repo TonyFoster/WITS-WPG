@@ -1,8 +1,5 @@
 package tw.mcark.tony.attendance;
 
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.messaging.FirebaseMessagingException;
-import com.google.firebase.messaging.Message;
 import tw.mcark.tony.AppException;
 
 import java.sql.SQLException;

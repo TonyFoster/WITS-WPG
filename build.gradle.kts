@@ -20,7 +20,6 @@ dependencies {
     implementation("com.zaxxer:HikariCP:6.1.0")
     implementation("mysql:mysql-connector-java:8.0.33")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.1")
-    implementation("com.google.firebase:firebase-admin:9.4.1")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
 

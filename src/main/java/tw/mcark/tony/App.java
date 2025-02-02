@@ -15,7 +15,7 @@ public class App {
 
         Javalin app = Javalin.create(config -> {
             config.bundledPlugins.enableCors(corsPluginConfig -> {
-                corsPluginConfig.addRule(corsRule -> corsRule.allowHost("http://localhost:4200", "https://wits.tony19907051.com"));
+                corsPluginConfig.addRule(corsRule -> corsRule.allowHost("http://localhost:4200", "https://wits.tony19907051.com", "https://wits.tony-liu.tw"));
             });
         }).start(7001);
 
